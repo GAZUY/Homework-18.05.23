@@ -184,3 +184,48 @@ function hour_to_second (sec,h=0,m=0,s=0){
 }
 let how_many_seconds = +(prompt('введите колличество секунд')as string)
 alert (hour_to_second(how_many_seconds))
+
+
+//Написать функцию, которая считает разницу между датами.
+
+function time_difference (h,m,s,h1,m1,s1) {
+    let h2=0
+    let m2=0
+    let s2=0
+    let differenc = 0
+    let time1 = h*3600+m*60+s
+    let time2 = h1*3600+m1*60+s1
+    console.log (time1)
+    console.log (time2)
+    if (time1<time2){
+        differenc = time2-time1
+    }else if(time1>time2) {
+        differenc = time1-time2
+    }else {
+        return 'Нет разницы во времени'
+    }
+    console.log (differenc)
+    h2 =Math.floor(differenc/3600)
+    m2 =Math.floor((differenc%3600)/60)
+    s2 =(differenc%3600)%60
+   if (h2<10){
+        // @ts-ignore
+       h2= '0'+h2
+   }
+   if (m2<10){
+        // @ts-ignore
+       m2= '0'+m2
+   }
+   if (s2<10){
+        // @ts-ignore
+       s2='0'+s2
+   }
+   return  'ваша разница во времени составит: '+h2+':'+m2+':'+s2
+}
+let one_hour = +(prompt ('Для вычисления разницы введите часы первого времени')as string)
+let one_minute = +(prompt ('Для вычисления разницы введите минуты первого времени')as string)
+let one_seconds = +(prompt ('Для вычисления разницы введите секунды первого времени')as string)
+let two_hour = +(prompt ('Для вычисления разницы введите часы второго времени')as string)
+let two_minute = +(prompt ('Для вычисления разницы введите минуты второго времени')as string)
+let two_seconds = +(prompt ('Для вычисления разницы введите секунды второго времени')as string)
+alert (time_difference(one_hour,one_minute,one_seconds,two_hour,two_minute,two_seconds))
